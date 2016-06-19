@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    h1 Login
+    p Please login into your account
+        .col-md-6
+            form(method='post', action='users/register', enctype='multipart/form-data')
+                .form-group
+                    label Username
+                    input.form-control(name='username', type='text')
+                .form-group
+                    label Password
+                    input.form-control(name='password', type='password')
+
+                input.btn.btn-primary(name='submit', type='submit', value='Login')

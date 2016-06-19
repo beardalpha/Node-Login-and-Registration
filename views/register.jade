@@ -1,0 +1,25 @@
+extends layout
+
+block content
+    h1 Register
+    p Please fill out the form below to register
+
+    .col-md-6
+        form(method='post', action='users/register', enctype='multipart/form-data')
+            .form-group
+                label Name
+                input.form-control(name='name', type='text')
+            .form-group
+                label Email
+                input.form-control(name='email', type='email')
+            .form-group
+                label Username
+                input.form-control(name='username', type='text')
+            .form-group
+                label Password
+                input.form-control(name='password', type='password')
+            .form-group
+                label Confirm Password
+                input.form-control(name='confirmPassword', type='password')
+
+            input.btn.btn-primary(name='submit', type='submit', value='Register')
