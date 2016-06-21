@@ -11,7 +11,6 @@ var localPassport = require('passport-local').Strategy;
 
 var bodyParser = require('body-parser');
 
-var multer = require('multer');
 var flash = require('connect-flash');
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
