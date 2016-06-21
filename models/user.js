@@ -25,6 +25,23 @@ var UserSchema = mongoose.Schema({
 
 var User = module.exports = mongoose.model('User', UserSchema);
 
+
+module.exports.comparePassword = function(candPassword, hash, callback){
+  bcrypt.compare(candPassword, hash, function(err, isMatch){
+    if(err) return callback(err);
+    callback(null, isMatch);
+  })
+};
+
+module.exports.getUserByUsername = function(username, callback){
+  var query = {username: username};
+  User.findOne(query, callback);
+};
+
+module.exports.getUserById = function(id, callback){
+  User.findById(id, callback);
+};
+
 module.exports.createUser = function(newUser, callback){
   bcrypt.hash(newUser.password, 10, function(err, hash){
     if(err) throw err;
@@ -32,5 +49,5 @@ module.exports.createUser = function(newUser, callback){
     newUser.password = hash;
     newUser.save(callback);
   });
-
 };
+
